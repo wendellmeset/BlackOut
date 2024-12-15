@@ -12,6 +12,11 @@ jobs:
           distribution: adopt
       - name: Build
         run: ./gradlew build
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Build-Artifacts
+          path: ./build/libs/*.jar
       - name: Release
         uses: marvinpinto/action-automatic-releases@latest
         with:
